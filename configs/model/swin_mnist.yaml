@@ -1,0 +1,35 @@
+_target_: src.models.mnist_module.MNISTLitModule
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.001
+  weight_decay: 0.0
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.1
+  patience: 10
+
+net:
+  _target_: src.models.components.swin_transformer_net.SwinTransformer
+  img_size: 28
+  patch_size: 2
+  in_chans: 1
+  num_classes: 10
+  embed_dim: 16
+  depths: [2, 2]
+  num_heads: [2, 2]
+  window_size: 2
+  mlp_ratio: 2
+  qkv_bias: True
+  qk_scale: None
+  drop_rate: 0 
+  drop_path_rate: 0.1
+  attn_drop_rate: 0
+  norm_layer: "norm_layer"
+  ape: False,
+  patch_norm: True,
+  use_checkpoint: False

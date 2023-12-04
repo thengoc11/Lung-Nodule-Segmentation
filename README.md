@@ -60,7 +60,7 @@ python src/train.py trainer=ddp trainer.devices=4 logger=wandb
    ```
 3. Edit visualization with Wandb:
    ```bash
-    File path: ./src/utils/callbacks/wandb_callback
+    File path: ./src/utils/callbacks/wandb_callback.py
    ```
 4. Modify config dataset:
    ```bash

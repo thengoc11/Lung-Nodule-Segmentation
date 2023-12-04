@@ -63,22 +63,19 @@ python src/train.py trainer=ddp trainer.devices=4 logger=wandb
     File path: ./src/utils/callbacks/wandb_callback.py
    ```
 4. Modify config file:  
-   *Dataset*
    ```bash
-    ./configs/data/{your_dataset}.yaml
+   *Dataset*: ./configs/data/{your_dataset}.yaml
+   ``` 
+   ```bash
+   *Training*: ./configs/train.yaml
    ```
-   *Training*  
-      ```bash
-      ./configs/train.yaml
-      ```
 5. Training:  
-   *Single GPU*
     ```bash
-    python src/train.py trainer=gpu logger=wandb
+   *Single GPU*: python src/train.py trainer=gpu logger=wandb
     ```
    *Multi GPU*
     ```bash
-    python src/train.py trainer=ddp trainer.devices=4 logger=wandb
+   *Multi GPU*: python src/train.py trainer=ddp trainer.devices=4 logger=wandb
     ```
         
 

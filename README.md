@@ -64,18 +64,17 @@ python src/train.py trainer=ddp trainer.devices=4 logger=wandb
    ```
 4. Modify config file:  
    ```bash
-   *Dataset*: ./configs/data/{your_dataset}.yaml
+   Dataset: ./configs/data/{your_dataset}.yaml
    ``` 
    ```bash
-   *Training*: ./configs/train.yaml
+   Training: ./configs/train.yaml
    ```
 5. Training:  
     ```bash
-   *Single GPU*: python src/train.py trainer=gpu logger=wandb
+   Single GPU: python src/train.py trainer=gpu logger=wandb
     ```
-   *Multi GPU*
     ```bash
-   *Multi GPU*: python src/train.py trainer=ddp trainer.devices=4 logger=wandb
+   Multi GPU: python src/train.py trainer=ddp trainer.devices=4 logger=wandb
     ```
         
 

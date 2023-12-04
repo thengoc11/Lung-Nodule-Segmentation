@@ -31,7 +31,7 @@ All the dependencies can be installed using the provided requirements.txt file.
    [LIDC data](https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=1966254&fbclid=IwAR1vDkrpq0IJN8KwPT2Fft1GJ4bFPiMqXp4p08eEfOaUYofS-88pnNF_Z7g)
 4. Data Preprocessing with repository
    ```
-   git clone https://github.com/jaeho3690 LIDC-IDRI-Preprocessing
+   git clone https://github.com/jaeho3690/LIDC-IDRI-Preprocessing
    ```
    
 ## How to run
@@ -50,20 +50,27 @@ python src/train.py trainer=ddp trainer.devices=4 logger=wandb
 ```
 #### Train with other models
 
-Config dataset:
+1. Customize dataloader for your dataset:
+   ```bash
+    File path: ./src/data/{your_datamodule}.py
+   ```
+2. Add your model architecure:
+   ```bash
+    File path: ./src/models/{your_module}.py
+   ```
+3. Edit visualization with Wandb:
+   ```bash
+    File path: ./src/utils/callbacks/wandb_callback
+   ```
+4. Modify config dataset:
+   ```bash
     ./configs/data/{your_dataset}.yaml
-
-Config training:
-    ./configs/train.yaml
-
-1. Customize dataloader for your dataset
-    Script path: ./src/data/{your_datamodule}.py
-2. Add your model architecure
-    Script path: ./src/models/{your_module}.py
-3. Edit visualization with Wandb
-    Script path: ./src/utils/callbacks/wandb_callback
-4. Train
-
+   ```
+   Modify config training:
+      ```bash
+      ./configs/train.yaml
+      ```
+5. Training
     Train on single GPU:
     ```bash
     python src/train.py trainer=gpu logger=wandb
@@ -71,7 +78,7 @@ Config training:
     
     Train on multi GPU:
     ```bash
-    python src/train.py trainer=ddp trainer.devices=4 logger=wandb\
+    python src/train.py trainer=ddp trainer.devices=4 logger=wandb
     ```
         
 

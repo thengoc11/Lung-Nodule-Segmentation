@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import sys
 import torch.nn.functional as F
-sys.path.append('/data/thanhdd/Lang/Lung-Segmentation/src/models/components')
+sys.path.append('./src/models/components')
 from Encoder import mit
 from Decoder import mlp
 from mmcv.cnn import ConvModule
